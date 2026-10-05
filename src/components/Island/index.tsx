@@ -291,7 +291,7 @@ export function Hero() {
           fontFamily: 'monospace',
         }}
       >
-        [Hero Image]
+        <img src='/images/hero/currentlogo.jpg' style={{ width: '100%' }}/>
       </div>
     </section>
   );
