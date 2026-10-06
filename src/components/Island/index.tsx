@@ -4,6 +4,154 @@
 import { SITE_CONFIG, COLORS, SERVICES, STEPS, GALLERY, TOWNS } from '@/lib/data';
 import { useState } from 'react';
 
+// export function Header() {
+//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+//   const navLinks = [
+//     { label: 'Services', href: '#services' },
+//     { label: 'About', href: '#about' },
+//     { label: 'Our Work', href: '#work' },
+//     { label: 'Service Area', href: '#area' },
+//     { label: 'Contact', href: '#contact' },
+//   ];
+
+//   return (
+//     <header
+//       style={{
+//         display: 'flex',
+//         alignItems: 'center',
+//         justifyContent: 'space-between',
+//         gap: '24px',
+//         padding: '14px 48px',
+//         background: COLORS.pageBg,
+//         borderBottom: `1px solid ${COLORS.border}`,
+//         position: 'sticky',
+//         top: 0,
+//         zIndex: 50,
+//         flexWrap: 'wrap',
+//       }}
+//     >
+//       <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+//         <div
+//           style={{
+//             width: '90px',
+//             height: '56px',
+//             borderRadius: '6px',
+//             background: 'linear-gradient(135deg, #2f6b2a 0%, #1d4a1a 100%)',
+//             display: 'flex',
+//             alignItems: 'center',
+//             justifyContent: 'center',
+//             color: '#efe6b8',
+//             fontSize: '24px',
+//             fontWeight: 'bold',
+//           }}
+//         >
+//           🌿
+//         </div>
+//         <span
+//           style={{
+//             fontFamily: "'Saira Condensed', sans-serif",
+//             fontWeight: 700,
+//             fontSize: '28px',
+//             letterSpacing: '0.04em',
+//             textTransform: 'uppercase',
+//             color: COLORS.forest,
+//           }}
+//         >
+//           Island Lawncare
+//         </span>
+//       </a>
+
+//       <nav
+//         style={{
+//           display: mobileMenuOpen ? 'flex' : 'none',
+//           flexDirection: 'column',
+//           gap: '16px',
+//           width: '100%',
+//           position: 'absolute',
+//           top: '100%',
+//           left: 0,
+//           right: 0,
+//           background: COLORS.pageBg,
+//           padding: '16px 48px',
+//           borderBottom: `1px solid ${COLORS.border}`,
+//         }}
+//         className="mobile-nav"
+//       >
+//         {navLinks.map((link) => (
+//           <a
+//             key={link.href}
+//             href={link.href}
+//             style={{
+//               color: COLORS.forest,
+//               fontWeight: 500,
+//               fontSize: '16px',
+//             }}
+//             onClick={() => setMobileMenuOpen(false)}
+//           >
+//             {link.label}
+//           </a>
+//         ))}
+//       </nav>
+
+//       <nav
+//         style={{
+//           display: 'flex',
+//           gap: '32px',
+//           fontWeight: 500,
+//           fontSize: '16px',
+//         }}
+//         className="desktop-nav"
+//       >
+//         {navLinks.map((link) => (
+//           <a
+//             key={link.href}
+//             href={link.href}
+//             style={{
+//               color: COLORS.forest,
+//             }}
+//           >
+//             {link.label}
+//           </a>
+//         ))}
+//       </nav>
+
+//       <a
+//         href="#contact"
+//         style={{
+//           background: COLORS.green,
+//           color: '#fff',
+//           padding: '14px 26px',
+//           borderRadius: '6px',
+//           fontWeight: 700,
+//           transition: 'background 0.2s ease',
+//         }}
+//         onMouseEnter={(e) => {
+//           e.currentTarget.style.background = COLORS.greenHover;
+//         }}
+//         onMouseLeave={(e) => {
+//           e.currentTarget.style.background = COLORS.green;
+//         }}
+//       >
+//         Get a Free Quote
+//       </a>
+
+//       <button
+//         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+//         style={{
+//           display: 'none',
+//           background: 'none',
+//           border: 'none',
+//           fontSize: '24px',
+//           cursor: 'pointer',
+//         }}
+//         className="mobile-menu-btn"
+//       >
+//         ☰
+//       </button>
+//     </header>
+//   );
+// }
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,69 +164,178 @@ export function Header() {
   ];
 
   return (
-    <header
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '24px',
-        padding: '14px 48px',
-        background: COLORS.pageBg,
-        borderBottom: `1px solid ${COLORS.border}`,
-        position: 'sticky',
-        top: 0,
-        zIndex: 50,
-        flexWrap: 'wrap',
-      }}
-    >
-      <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-        <div
-          style={{
-            width: '90px',
-            height: '56px',
-            borderRadius: '6px',
-            background: 'linear-gradient(135deg, #2f6b2a 0%, #1d4a1a 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#efe6b8',
-            fontSize: '24px',
-            fontWeight: 'bold',
-          }}
-        >
-          🌿
-        </div>
-        <span
-          style={{
-            fontFamily: "'Saira Condensed', sans-serif",
-            fontWeight: 700,
-            fontSize: '28px',
-            letterSpacing: '0.04em',
-            textTransform: 'uppercase',
-            color: COLORS.forest,
-          }}
-        >
-          Island Lawncare
-        </span>
-      </a>
+    <>
+      {/* Mobile Menu Styles */}
+      <style>{`
+        @media (max-width: 900px) {
+          .desktop-nav {
+            display: none !important;
+          }
+          .mobile-menu-btn {
+            display: block !important;
+          }
+        }
+        
+        @media (min-width: 901px) {
+          .mobile-menu-btn {
+            display: none !important;
+          }
+          .mobile-nav {
+            display: none !important;
+          }
+        }
+        
+        .mobile-nav.open {
+          display: flex !important;
+        }
+      `}</style>
 
-      <nav
+      <header
         style={{
-          display: mobileMenuOpen ? 'flex' : 'none',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '24px',
+          padding: '14px 20px',
+          background: COLORS.pageBg,
+          borderBottom: `1px solid ${COLORS.border}`,
+          position: 'sticky',
+          top: 0,
+          zIndex: 50,
+          flexWrap: 'wrap',
+        }}
+      >
+        {/* Logo */}
+        <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: '200px' }}>
+          <div
+            style={{
+              width: '50px',
+              height: '50px',
+              borderRadius: '6px',
+              background: 'linear-gradient(135deg, #2f6b2a 0%, #1d4a1a 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#efe6b8',
+              fontSize: '24px',
+              fontWeight: 'bold',
+              flexShrink: 0,
+            }}
+          >
+            🌿
+          </div>
+          <span
+            style={{
+              fontFamily: "'Saira Condensed', sans-serif",
+              fontWeight: 700,
+              fontSize: '18px',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: COLORS.forest,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Island<br />Lawncare
+          </span>
+        </a>
+
+        {/* Desktop Navigation */}
+        <nav
+          className="desktop-nav"
+          style={{
+            display: 'flex',
+            gap: '24px',
+            fontWeight: 500,
+            fontSize: '14px',
+            flex: 1,
+            justifyContent: 'center',
+          }}
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              style={{
+                color: COLORS.forest,
+                transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = COLORS.green;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = COLORS.forest;
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Desktop CTA Button */}
+        <a
+          href="#contact"
+          style={{
+            background: COLORS.green,
+            color: '#fff',
+            padding: '12px 20px',
+            borderRadius: '6px',
+            fontWeight: 700,
+            fontSize: '14px',
+            transition: 'background 0.2s ease',
+            whiteSpace: 'nowrap',
+            display: 'none',
+          }}
+          className="desktop-cta"
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = COLORS.greenHover;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = COLORS.green;
+          }}
+        >
+          Get Quote
+        </a>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          style={{
+            display: 'none',
+            background: COLORS.green,
+            color: '#fff',
+            border: 'none',
+            padding: '10px 16px',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontSize: '18px',
+            fontWeight: 'bold',
+            marginLeft: 'auto',
+          }}
+        >
+          {mobileMenuOpen ? '✕' : '☰'}
+        </button>
+      </header>
+
+      {/* Mobile Navigation Menu */}
+      <nav
+        className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}
+        style={{
+          display: 'none',
           flexDirection: 'column',
-          gap: '16px',
+          gap: '0',
           width: '100%',
           position: 'absolute',
           top: '100%',
           left: 0,
           right: 0,
           background: COLORS.pageBg,
-          padding: '16px 48px',
           borderBottom: `1px solid ${COLORS.border}`,
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          zIndex: 49,
         }}
-        className="mobile-nav"
       >
-        {navLinks.map((link) => (
+        {navLinks.map((link, idx) => (
           <a
             key={link.href}
             href={link.href}
@@ -86,70 +343,44 @@ export function Header() {
               color: COLORS.forest,
               fontWeight: 500,
               fontSize: '16px',
+              padding: '16px 20px',
+              borderBottom: idx < navLinks.length - 1 ? `1px solid ${COLORS.border}` : 'none',
+              transition: 'background 0.2s ease',
             }}
             onClick={() => setMobileMenuOpen(false)}
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
-
-      <nav
-        style={{
-          display: 'flex',
-          gap: '32px',
-          fontWeight: 500,
-          fontSize: '16px',
-        }}
-        className="desktop-nav"
-      >
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            style={{
-              color: COLORS.forest,
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = COLORS.pageBg;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
             }}
           >
             {link.label}
           </a>
         ))}
+        <a
+          href="#contact"
+          style={{
+            background: COLORS.green,
+            color: '#fff',
+            fontWeight: 700,
+            fontSize: '16px',
+            padding: '16px 20px',
+            textAlign: 'center',
+            transition: 'background 0.2s ease',
+          }}
+          onClick={() => setMobileMenuOpen(false)}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = COLORS.greenHover;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = COLORS.green;
+          }}
+        >
+          Get a Free Quote
+        </a>
       </nav>
-
-      <a
-        href="#contact"
-        style={{
-          background: COLORS.green,
-          color: '#fff',
-          padding: '14px 26px',
-          borderRadius: '6px',
-          fontWeight: 700,
-          transition: 'background 0.2s ease',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = COLORS.greenHover;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = COLORS.green;
-        }}
-      >
-        Get a Free Quote
-      </a>
-
-      <button
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        style={{
-          display: 'none',
-          background: 'none',
-          border: 'none',
-          fontSize: '24px',
-          cursor: 'pointer',
-        }}
-        className="mobile-menu-btn"
-      >
-        ☰
-      </button>
-    </header>
+    </>
   );
 }
 
